@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import { useEffect, useState } from "react";
+import { getCategories } from "./apis/endpoints";
+import Home from "./pages/home/Home";
+import type { category } from "./apis/types";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import About from "./pages/about/About";
+import Topbar from "./pages/Topbar";
+import CategoryMeals from "./pages/CategoryMeals";
+import MealRecipe from "./pages/MealRecipe";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App({ categoriesList: [] = [] }) {
+  const [data, setData] = useState<category[]>([]);
+  const getData = async () => {
+    const _data = await getCategories();
+    setData(_data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="bg-teal-50 h-full border-2 overflow-auto">
+        <BrowserRouter>
+          <Topbar />
+          <div className="max-w-200 text-center m-auto">
+            <Routes>
+              <Route path="/" element={<Home categories={data} />} />
+              <Route path="/categoryMeals" element={<CategoryMeals />} />
+              <Route path="/meal" element={<MealRecipe />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

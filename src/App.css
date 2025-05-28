@@ -1,42 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  height: 100%;
+  font-family: Courgette;
+  color: /*#6e786e*/ teal;
+
+  --secondary-font: Inter;
+}
+body,
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+  box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+p {
+  font-size: 18px;
+}
+@theme {
+  /*directive*/
+  --color-frogi: #987382;
+  --font-secondary: Inter;
+}
+
+@layer base {
+  button {
+    @apply bg-orange-300 text-orange-800 border-sky-400;
   }
-  to {
-    transform: rotate(360deg);
+  image {
+    border: solid;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@utility category-card {
+  @apply relative flex items-center m-5 rounded-sm p-2 bg-white shadow-teal-200 shadow-md;
+}
+@utility category-card_big-screen {
+  @apply flex-col w-[70%]  mx-auto  h-27;
+}
+@utility category-card_small-screen {
+  @apply flex-row justify-between h-[13vh] mt-0;
+}
+@utility category-meals-card {
+  @apply text-center m-5  p-2   mx-auto;
+}
+
+/* @utility {
+  xxxx {
+    @apply bg-amber-600;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  category-card {
+    @apply relative flex flex-col w-[70%] bg-amber-400 items-center mx-auto h-27 rounded-sm;
+  }
+} */
