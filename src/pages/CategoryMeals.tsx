@@ -16,8 +16,8 @@ const CategoryMeals = () => {
   }, []);
   return (
     <>
-      <h3 className="text-3xl  underline my-4">{category}</h3>
-      <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(250px,_1fr))]">
+      <h2 className="text-3xl  underline my-4">{category}</h2>
+      <div className="grid gap-4  sm:grid-cols-3 grid-cols-[repeat(auto-fit,minmax(150px,_1fr))]">
         {data.map((item) => (
           <NavLink to={`/meal?id=${item.idMeal}`}>
             <div className="category-meals-card" key={item.idMeal}>
@@ -26,7 +26,7 @@ const CategoryMeals = () => {
                 alt="wrong"
                 className="w-[70%] rounded-sm m-auto shadow-teal-200 shadow-md"
               ></img>
-              <h4 className=" my-2 text-2xl">{item.strMeal}</h4>
+              <p className=" my-2 text-2xl">{item.strMeal}</p>
             </div>
           </NavLink>
         ))}

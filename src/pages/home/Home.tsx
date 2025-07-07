@@ -23,7 +23,7 @@ const Home = ({ categories }: componentProp) => {
         steps"
       </p>
       <h3 className="my-10 text-3xl underline">Categories</h3>
-      <div className="grid  sm:gap-y-12  sm:grid-cols-[repeat(auto-fit,minmax(250px,_1fr))] ">
+      <div className="grid  sm:gap-y-12  sm:grid-cols-3 ">
         {categories.map((category) => (
           <NavLink to={`/categorymeals?category=${category.strCategory}`}>
             <div

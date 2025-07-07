@@ -43,26 +43,30 @@ const MealRecipe = () => {
   }, []);
 
   return (
-    <div className="bg-[#343a40] p-2">
+    <div className="bg-[#343a40] p-2 text-[#b4b4b4]">
       {data && (
         <>
           <section>
-            <h3>{data.strMeal}</h3>
+            <h4 className="text-white my-2">{data.strMeal}</h4>
             <p>
               {data.strCategory}/ {data.strArea}
             </p>
           </section>
           <section>
-            <img className="" src={data.strMealThumb} alt="." />
+            <img className="w-full my-5" src={data.strMealThumb} alt="." />
           </section>
           <section>{}</section>
-          <section>{data.strInstructions}</section>
           <section>
-            <h3>Watch Video</h3>
+            <h4 className="text-white my-2">Recipe</h4>
+            {data.strInstructions}
+          </section>
+          <section>
+            <h4 className="text-white my-2">Watch Video</h4>
             <iframe
               src={(data.strYoutube || "").replace("watch?v=", "embed/")}
               title="wewe"
               frameBorder="0"
+              className="w-full max-w-md m-auto"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>

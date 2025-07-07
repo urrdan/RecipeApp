@@ -32,6 +32,9 @@ p {
   image {
     border: solid;
   }
+  h4 {
+    @apply text-xl;
+  }
 }
 
 @utility category-card {
