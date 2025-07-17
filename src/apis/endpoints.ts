@@ -18,22 +18,23 @@ const getCategories = async () => {
 };
 
 const getCategoriesMeals = async (category: string = "beef") => {
-  console.log(category);
-
   const data: { meals: categoryMeal[] } = await getItems(
     `/filter.php?c=${category}`
   );
-  console.log(data);
 
   return data.meals;
 };
 
 const getMealRecipe = async (id: string) => {
-  console.log(id);
-
   const data: any = await getItems(`/lookup.php?i=${id}`);
 
   return (data?.meals || [])[0];
 };
 
-export { getCategories, getCategoriesMeals, getMealRecipe };
+const searchMeal = async (query: string) => {
+  const data: any = await getItems(`/search.php?s=${query}`);
+  const meals: [] = data.meals;
+  return meals || [];
+};
+
+export { getCategories, getCategoriesMeals, getMealRecipe, searchMeal };

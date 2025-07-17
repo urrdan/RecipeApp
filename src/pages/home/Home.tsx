@@ -1,28 +1,22 @@
 import { NavLink } from "react-router-dom";
 import type { category } from "../../apis/types";
+import SearchComp from "./SearchComp";
 interface componentProp {
   categories: category[];
 }
 
 const Home = ({ categories }: componentProp) => {
-  console.log(categories);
-
   const categoryOnClick = (i: string) => {
     console.log(i);
   };
   return (
     <>
-      <div className="bg-white w-[70%] translate-y-[-50%] p-5 m-auto rounded">
-        <input
-          placeholder="Search Meal"
-          className="font-secondary bg-[#ebebeb] w-full max-w-[350px]  px-2 py-1 rounded text-[14px] "
-        />
-      </div>
+      <SearchComp />
       <p className="">
         "Master the secret to making dishes all around the globe in few simple
         steps"
       </p>
-      <h3 className="my-10 text-3xl underline">Categories</h3>
+      <h2 className="my-10 text-4xl underlicne font-secondary">Categories</h2>
       <div className="grid  sm:gap-y-12  sm:grid-cols-3 ">
         {categories.map((category) => (
           <NavLink to={`/categorymeals?category=${category.strCategory}`}>

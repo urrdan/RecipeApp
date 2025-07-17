@@ -21,10 +21,10 @@ function App({ categoriesList: [] = [] }) {
   }, []);
   return (
     <>
-      <div className="bg-teal-50 h-full border-2 overflow-auto">
+      <div className="bg-teal-50 h-full overflow-auto flex flex-col">
         <BrowserRouter>
           <Topbar />
-          <div className="max-w-200 text-center m-auto">
+          <div className="max-w-210 w-full text-center m-auto my-0 grow-1">
             <Routes>
               <Route path="/" element={<Home categories={data} />} />
               <Route path="/categoryMeals" element={<CategoryMeals />} />
@@ -32,6 +32,9 @@ function App({ categoriesList: [] = [] }) {
               <Route path="/about" element={<About />} />
             </Routes>
           </div>
+          <footer className="bg-teal-800 p-4  text-center">
+            <p className="text-white">Mohamed Abdulle &copy;2019</p>
+          </footer>
         </BrowserRouter>
       </div>
     </>

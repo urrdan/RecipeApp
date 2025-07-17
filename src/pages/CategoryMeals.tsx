@@ -24,7 +24,7 @@ const CategoryMeals = () => {
               <img
                 src={item.strMealThumb}
                 alt="wrong"
-                className="w-[70%] rounded-sm m-auto shadow-teal-200 shadow-md"
+                className="w-[70%] rounded-sm m-auto shadow-[0_0_10px_2px_var(--color-dark-gray)]"
               ></img>
               <p className=" my-2 text-2xl">{item.strMeal}</p>
             </div>

@@ -4,8 +4,6 @@
   height: 100%;
   font-family: Courgette;
   color: /*#6e786e*/ teal;
-
-  --secondary-font: Inter;
 }
 body,
 #root {
@@ -22,7 +20,9 @@ p {
 @theme {
   /*directive*/
   --color-frogi: #987382;
-  --font-secondary: Inter;
+  --color-light-gray: #ebebeb;
+  --color-dark-gray: #b4b4b4;
+  --font-secondary: Kaushan Script;
 }
 
 @layer base {
@@ -33,12 +33,12 @@ p {
     border: solid;
   }
   h4 {
-    @apply text-xl;
+    @apply text-xl font-secondary;
   }
 }
 
 @utility category-card {
-  @apply relative flex items-center m-5 rounded-sm p-2 bg-white shadow-teal-200 shadow-md;
+  @apply relative flex items-center m-5 rounded-sm p-2 bg-white shadow-[0_0_10px_var(--color-dark-gray)];
 }
 @utility category-card_big-screen {
   @apply flex-col w-[70%]  mx-auto  h-27;
@@ -50,11 +50,6 @@ p {
   @apply text-center m-5  p-2   mx-auto;
 }
 
-/* @utility {
-  xxxx {
-    @apply bg-amber-600;
-  }
-  category-card {
-    @apply relative flex flex-col w-[70%] bg-amber-400 items-center mx-auto h-27 rounded-sm;
-  }
-} */
+@utility search-result {
+  @apply bg-white absolute max-h-50 w-full text-left overflow-auto shadow-[0_0_10px_var(--color-dark-gray)]  m-0  p-1;
+}
