@@ -31,7 +31,7 @@ const SearchComp = () => {
       <div className="relative w-full max-w-[350px] m-auto">
         <input
           placeholder="Search Meal"
-          className="font-secondary bg-[#ebebeb] w-full   px-2 py-1 rounded text-[14px] "
+          className="font-third bg-[#ebebeb] w-full px-2 py-1 rounded text-[14px] "
           onChange={(e) => onChange(e.target.value)}
           value={inputValue}
           onBlur={onBlur}

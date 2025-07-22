@@ -23,6 +23,7 @@ p {
   --color-light-gray: #ebebeb;
   --color-dark-gray: #b4b4b4;
   --font-secondary: Kaushan Script;
+  --font-third: Inter;
 }
 
 @layer base {
@@ -38,16 +39,16 @@ p {
 }
 
 @utility category-card {
-  @apply relative flex items-center m-5 rounded-sm p-2 bg-white shadow-[0_0_10px_var(--color-dark-gray)];
+  @apply relative flex items-center m-5 rounded-sm p-2 hover:opacity-75 bg-white shadow-[0_0_10px_var(--color-dark-gray)];
 }
 @utility category-card_big-screen {
-  @apply flex-col w-[70%]  mx-auto  h-27;
+  @apply flex-col w-[70%] hover:w-[68%]  mx-auto  h-27;
 }
 @utility category-card_small-screen {
   @apply flex-row justify-between h-[13vh] mt-0;
 }
 @utility category-meals-card {
-  @apply text-center m-5  p-2   mx-auto;
+  @apply text-center m-5  p-2 hover:opacity-75 mx-auto hover:w-[98%];
 }
 
 @utility search-result {

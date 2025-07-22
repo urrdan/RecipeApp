@@ -7,7 +7,10 @@ function Topbar() {
         <img src={Logo} className="h-15 invert" />
       </NavLink>
       <div className="py-2 self-start text-teal-50 ">
-        <a>Favorites</a> <a>About</a>
+        <a>Favorites</a>{" "}
+        <NavLink to={`/about`} className="hover:opacity-70">
+          About
+        </NavLink>
       </div>
     </div>
   );
