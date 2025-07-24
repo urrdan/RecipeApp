@@ -19,7 +19,6 @@ p {
 }
 @theme {
   /*directive*/
-  --color-frogi: #987382;
   --color-light-gray: #ebebeb;
   --color-dark-gray: #b4b4b4;
   --font-secondary: Kaushan Script;
@@ -33,8 +32,11 @@ p {
   image {
     border: solid;
   }
+  h2 {
+    @apply text-4xl my-4;
+  }
   h4 {
-    @apply text-xl font-secondary;
+    @apply text-xl font-secondary text-white my-4;
   }
 }
 

@@ -6,10 +6,10 @@ function Topbar() {
       <NavLink to="/">
         <img src={Logo} className="h-15 invert" />
       </NavLink>
-      <div className="py-2 self-start text-teal-50 ">
-        <a>Favorites</a>{" "}
+      <div className="py-2 self-start text-teal-50 font-third">
+        {/* <a>Favorites</a>{" "} */}
         <NavLink to={`/about`} className="hover:opacity-70">
-          About
+          ABOUT
         </NavLink>
       </div>
     </div>

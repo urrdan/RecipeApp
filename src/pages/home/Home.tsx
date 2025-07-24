@@ -16,7 +16,7 @@ const Home = ({ categories }: componentProp) => {
         "Master the secret to making dishes all around the globe in few simple
         steps"
       </p>
-      <h2 className="my-10 text-4xl underlicne font-secondary">Categories</h2>
+      <h2 className="my-10  font-secondary">Categories</h2>
       <div className="grid  sm:gap-y-12  sm:grid-cols-3 ">
         {categories.map((category) => (
           <NavLink to={`/categorymeals?category=${category.strCategory}`}>

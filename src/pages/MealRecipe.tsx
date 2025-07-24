@@ -37,7 +37,7 @@ const MealRecipe = () => {
       {data && (
         <>
           <section className="col-span-full">
-            <h4 className="text-white mt-2 mb-1">{data.strMeal}</h4>
+            <h4 className="mt-2 mb-1">{data.strMeal}</h4>
             <p>
               {data.strCategory}/ {data.strArea}
             </p>
@@ -50,7 +50,7 @@ const MealRecipe = () => {
             />
           </section>
           <section className="col-start-1">
-            <h4 className="text-white my-4">Ingedients</h4>
+            <h4>Ingedients</h4>
             <ul className="px-4">
               {ingredients.map((ele) => {
                 return (
@@ -62,11 +62,11 @@ const MealRecipe = () => {
             </ul>
           </section>
           <section className="row-start-2 row-span-4 col-start-2">
-            <h4 className="text-white my-4">Recipe</h4>
+            <h4>Recipe</h4>
             <p className="text-left">{data.strInstructions}</p>
           </section>
           <section className="col-start-1">
-            <h4 className="text-white my-4">Watch Video</h4>
+            <h4>Watch Video</h4>
             <div className="recipe-video max-w-80 m-auto">
               <iframe
                 src={(data.strYoutube || "").replace("watch?v=", "embed/")}

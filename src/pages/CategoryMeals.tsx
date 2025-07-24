@@ -16,7 +16,7 @@ const CategoryMeals = () => {
   }, []);
   return (
     <>
-      <h2 className="text-3xl  underline my-4">{category}</h2>
+      <h2>{category}</h2>
       <div className="grid gap-4  sm:grid-cols-3 grid-cols-[repeat(auto-fit,minmax(150px,_1fr))]">
         {data.map((item) => (
           <NavLink to={`/meal?id=${item.idMeal}`}>
