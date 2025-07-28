@@ -1,22 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { searchMeal } from "../../apis/endpoints";
 import type { categoryMeal } from "../../apis/types";
 import { NavLink } from "react-router-dom";
+import useDelayInput from "./useDelayInput";
 
 const SearchComp = () => {
   const [searchResult, setSearchResultData] = useState<categoryMeal[]>([]);
   const [inputValue, setInputValue] = useState("");
 
+  let delayedInputValue = useDelayInput(inputValue);
   const onChange = async (value: string) => {
     setInputValue(value);
-
-    if (value) {
-      const _data = await searchMeal(value);
-      setSearchResultData(_data);
-    } else {
-      setSearchResultData([]);
-      setInputValue("");
-    }
   };
 
   const onBlur = () => {
@@ -26,6 +20,18 @@ const SearchComp = () => {
     }, 300);
   };
 
+  const searchAction = async () => {
+    if (delayedInputValue) {
+      const _data = await searchMeal(delayedInputValue);
+      setSearchResultData(_data);
+    } else {
+      setSearchResultData([]);
+    }
+  };
+
+  useEffect(() => {
+    searchAction();
+  }, [delayedInputValue]);
   return (
     <div className="bg-white w-[70%] translate-y-[-50%] p-5 m-auto rounded  shadow-[0_0_6px_var(--color-dark-gray)]">
       <div className="relative w-full max-w-[350px] m-auto">
@@ -36,6 +42,7 @@ const SearchComp = () => {
           value={inputValue}
           onBlur={onBlur}
         />
+
         {searchResult.length ? (
           <ul className="search-result">
             {searchResult.map((item) => (
